@@ -17,7 +17,7 @@ try {
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-id',
         usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 
-        sh 'echo uname=$USERNAME pwd=$PASSWORD'
+        sh 'echo $USERNAME $PASSWORD'
         }
       }
     }
