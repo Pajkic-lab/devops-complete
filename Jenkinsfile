@@ -14,8 +14,10 @@ try {
     
     stage('check docker secret') {
       node {
-      withCredentials([string(credentialsId: 'docker-hub-id', variable: 'SECRET')]) { 
-          echo "My secret text is '${SECRET}'"
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-id',
+        usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+
+        sh 'echo uname=$USERNAME pwd=$PASSWORD'
         }
       }
     }
