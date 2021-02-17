@@ -16,7 +16,7 @@ try {
       node {
           checkout scm
           dir("client") {
-                docker.withRegistry('https://hub.docker.com/', 'docker-hub-id') {
+                docker.withRegistry('docker-hub-id') {
 
                 def customImage = docker.build("markopajkic/devopsclient1")
 
