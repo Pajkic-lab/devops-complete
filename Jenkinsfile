@@ -2,7 +2,7 @@ pipeline {
 
     agent any
 
-    enviroment {
+    environment {
         dockerImage = ''
         registry = 'markopajkic/clientdevops'
     }
