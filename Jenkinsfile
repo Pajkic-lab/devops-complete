@@ -20,10 +20,18 @@ pipeline {
             }
         }
 
-        stage('Build Docker image') {
+        stage('PWD') {
             steps {
                 script {
                     echo "$PWD"
+                }
+            }
+        }
+
+        stage('Docker version') {
+            steps {
+                script {
+                    docker --version
                 }
             }
         }
