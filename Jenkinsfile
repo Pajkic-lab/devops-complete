@@ -16,8 +16,10 @@ try {
       node {
           checkout scm
           dir("client") {
+              docker.withRegistry('', 'credentials-id') {
                 def customImage = docker.build("markopajkic/devopsclient1")
                 customImage.push()
+              }
           }
         }
     }
