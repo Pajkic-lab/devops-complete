@@ -11,15 +11,15 @@ try {
             sh 'docker --version'
       }
     }
-
-    stage('docker test') {
+    
+    stage('check docker secret') {
       node {
-          checkout scm
-          dir("client") {
-          sh "docker build -t markopajkic/reactapp ."
-          }
+      withCredentials([string(credentialsId: 'docker-hub-id', variable: 'SECRET')]) { 
+          echo "My secret text is '${SECRET}'"
         }
+      }
     }
+
   
   currentBuild.result = 'SUCCESS'
 }
