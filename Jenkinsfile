@@ -1,5 +1,11 @@
 pipeline {
+
     agent any
+
+    enviroment {
+        dockerImage = ''
+        registry = 'markopajkic/clientdevops'
+    }
 
     stages {
         stage('Checkout') {
@@ -11,6 +17,14 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+            }
+        }
+
+        stage('Build Docker image') {
+            steps {
+                script {
+                    dockerImage = docker.build registry
+                }
             }
         }
     }
