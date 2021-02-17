@@ -12,14 +12,18 @@ try {
       }
     }
     
-    stage('check docker secret') {
+    stage('docker build') {
       node {
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-id',
-        usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+          checkout scm
+          dir("client") {
+                docker.withRegistry('https://hub.docker.com/', 'docker-hub-id') {
 
-        sh 'echo $USERNAME $PASSWORD'
+                def customImage = docker.build("markopajkic/devopsclient1")
+
+                customImage.push()
+            }
+          }
         }
-      }
     }
 
   
