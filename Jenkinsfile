@@ -1,5 +1,5 @@
 try {
-  stage('checkout') {
+  stage('checkout scm') {
     node {
       cleanWs()
       checkout scm
@@ -12,7 +12,7 @@ try {
       }
     }
     
-    stage('docker build') {
+    stage('docker build && push') {
       node {
           checkout scm
           dir("client") {

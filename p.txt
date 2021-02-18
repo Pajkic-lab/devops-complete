@@ -1,6 +1,4 @@
---install docker on jenkins
---contenerize react app
---push it docker hub
+--webhoock
 --terraform provision infra
 --use ansible to conf web-werver and run docker containers on it 
 

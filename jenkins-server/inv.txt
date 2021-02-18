@@ -32,3 +32,10 @@ sudo systemctl daemon-reload
 sudo service docker stop
 sudo service docker start
 sudo service docker status
+
+
+
+--jenkins terraform conf--
+CloudBees AWS Credentials Plugin
+Terraform plugin
+download terraform manualy, uzip it and move it to /usr/bin 
