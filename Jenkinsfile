@@ -12,7 +12,7 @@ try {
       }
     }
     
-    stage('docker build && push') {
+    stage('docker build & push') {
       node {
           checkout scm
           dir("client") {
