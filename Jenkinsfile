@@ -40,7 +40,8 @@ try {
           }
         }
       }
-
+  }
+  
   stage('terraform plan') {
     node {
         checkout scm
