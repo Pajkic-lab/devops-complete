@@ -1,4 +1,4 @@
-
+String credentialsId = 'aws-id'
 
 try {
   stage('checkout scm') {
@@ -32,7 +32,7 @@ try {
         dir("web-server") {
           withCredentials([[
             $class: 'AmazonWebServicesCredentialsBinding',
-            credentialsId: aws-id,
+            credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
           ]]) {
@@ -41,14 +41,14 @@ try {
         }
       }
   }
-  
+
   stage('terraform plan') {
     node {
         checkout scm
         dir("web-server") {
           withCredentials([[
             $class: 'AmazonWebServicesCredentialsBinding',
-            credentialsId: aws-id,
+            credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
           ]]) {
