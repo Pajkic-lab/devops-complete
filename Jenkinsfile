@@ -1,4 +1,4 @@
-String credentialsId = 'aws-id'
+
 
 try {
   stage('checkout scm') {
@@ -32,7 +32,7 @@ try {
         dir("web-server") {
           withCredentials([[
             $class: 'AmazonWebServicesCredentialsBinding',
-            credentialsId: credentialsId,
+            credentialsId: aws-id,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
           ]]) {
