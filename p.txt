@@ -19,6 +19,7 @@
         }
     }
 
+
 //should work
       node {
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-id',
