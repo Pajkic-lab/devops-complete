@@ -24,6 +24,37 @@ try {
         }
     }
 
+  stage('terraform init') {
+    node {
+        checkout scm
+        dir("web-server") {
+          withCredentials([[
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: aws-id,
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          ]]) {
+              sh 'terraform init'
+          }
+        }
+      }
+
+  stage('terraform plan') {
+    node {
+        checkout scm
+        dir("web-server") {
+          withCredentials([[
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: aws-id,
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          ]]) {
+              sh 'terraform plan'
+          }
+        }
+      }
+    
+
   
   currentBuild.result = 'SUCCESS'
 }

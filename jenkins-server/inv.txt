@@ -8,6 +8,9 @@ ec2-instance ansible_host=3.64.184.9 ansible_user=ubuntu ansible_ssh_private_key
 status 
 sudo service jenkins status
 
+--web-hook--
+http://3.64.184.9:8080/github-webhook/
+application/jason
 
 
 --jenkins docker conf--
@@ -38,4 +41,10 @@ sudo service docker status
 --jenkins terraform conf--
 CloudBees AWS Credentials Plugin
 Terraform plugin
-download terraform manualy, uzip it and move it to /usr/bin 
+
+wget https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip
+sudo apt install zip
+sudo apt install unzip
+sudo mv terraform /usr/bin/
+which terraform
+// path /usr/bin/
