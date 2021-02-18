@@ -55,7 +55,7 @@ try {
           }
         }
       }
-    
+  } 
 
   
   currentBuild.result = 'SUCCESS'

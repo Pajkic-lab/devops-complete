@@ -109,11 +109,15 @@ resource "aws_eip" "one" {
   network_interface         = aws_network_interface.web-server-nic.id
   associate_with_private_ip = "10.0.1.50"
   depends_on = [ aws_internet_gateway.gw ]
+
+  tags = {
+    Name = "web-server-p1-eip"
+  }
 }
 
 resource "aws_instance" "web-server-instance" {
-  ami               = "ami-0502e817a62226e03"
-  instance_type     = "t2.micro"
+  ami               = "ami-0932440befd74cdba"
+  instance_type     = "t2.medium"
   availability_zone = "eu-central-1a"
   key_name = "test1"                                         
 
@@ -123,7 +127,7 @@ resource "aws_instance" "web-server-instance" {
   }
 
   tags = {
-     Name = "web-server"
+     Name = "web-server-p1"
    }
 }
 
