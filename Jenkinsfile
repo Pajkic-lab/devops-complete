@@ -1,6 +1,7 @@
 String credentialsId = 'aws-id'
 
 try {
+  
   stage('checkout scm') {
     node {
       cleanWs()
@@ -8,23 +9,23 @@ try {
     }
   }
 
-    stage('check docker') {
-      node {
-            sh 'docker --version'
-      }
+  stage('check docker') {
+    node {
+          sh 'docker --version'
     }
+  }
     
-    stage('docker build & push') {
-      node {
-          checkout scm
-          dir("client") {
-              docker.withRegistry('', 'docker-hub-id') {
-                def customImage = docker.build("markopajkic/devopsclient1")
-                customImage.push()
-              }
-          }
+  stage('docker build & push') {
+    node {
+        checkout scm
+        dir("client") {
+            docker.withRegistry('', 'docker-hub-id') {
+              def customImage = docker.build("markopajkic/devopsclient1")
+              customImage.push()
+            }
         }
-    }
+      }
+  }
 
   stage('terraform init') {
     node {
@@ -53,6 +54,38 @@ try {
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
           ]]) {
               sh 'terraform plan'
+          }
+        }
+      }
+  } 
+
+  stage('terraform apply') {
+    node {
+        checkout scm
+        dir("web-server") {
+          withCredentials([[
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: credentialsId,
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          ]]) {
+              sh 'terraform apply -auto-approve'
+          }
+        }
+      }
+  }
+
+  stage('terraform show') {
+    node {
+        checkout scm
+        dir("web-server") {
+          withCredentials([[
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: credentialsId,
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          ]]) {
+              sh 'terraform show'
           }
         }
       }

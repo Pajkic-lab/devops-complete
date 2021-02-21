@@ -1,5 +1,3 @@
---check main.tf web-server for tags and what not
---terraform apply
 --use ansible to conf web-server and run docker containers on it 
 
 

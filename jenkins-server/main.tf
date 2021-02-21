@@ -135,4 +135,3 @@ output "web-server_instance_ip_addr" {
   value = aws_eip.one.public_ip
 }
 
-//3.64.184.9
