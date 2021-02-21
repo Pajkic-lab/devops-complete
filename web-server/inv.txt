@@ -1,1 +1,3 @@
 18.185.41.78
+
+ssh -i /home/marko/test1.pem ubuntu@18.185.41.78
