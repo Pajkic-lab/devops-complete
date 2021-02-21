@@ -66,3 +66,7 @@ Ansible plugin
 --ansible hosts--
 [web-server]
 ec2-instance ansible_host=18.185.41.78 ansible_user=ubuntu
+
+--ansible.cfg--
+[defaults]
+host_key_checking = False
