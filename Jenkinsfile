@@ -98,7 +98,7 @@ try {
               ansiblePlaybook(
                 credentialsId: 'ssh-key', 
                 inventory: 'etc/ansible/hosts', 
-                playbook: 'playbook.yml'
+                playbook: 'playbook.yaml'
               )
           }
         }
