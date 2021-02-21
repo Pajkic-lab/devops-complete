@@ -89,7 +89,20 @@ try {
           }
         }
       }
-  } 
+  }
+
+  stage('ansible test') {
+    node {
+        checkout scm
+        dir("web-server") {
+              ansiblePlaybook(
+                credentialsId: 'ssh-key', 
+                inventory: 'etc/ansible/hosts', 
+                playbook: 'playbook.yml'
+              )
+          }
+        }
+      }
 
   
   currentBuild.result = 'SUCCESS'

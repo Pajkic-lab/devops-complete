@@ -48,3 +48,21 @@ sudo apt install unzip
 sudo mv terraform /usr/bin/
 which terraform
 // path /usr/bin/
+
+
+
+
+--jenkins ansible conf--
+sudo apt update
+sudo apt install software-properties-common
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+
+which ansible
+// /usr/bin/ansible
+
+Ansible plugin 
+
+--ansible hosts--
+[web-server]
+ec2-instance ansible_host=18.185.41.78 ansible_user=ubuntu
