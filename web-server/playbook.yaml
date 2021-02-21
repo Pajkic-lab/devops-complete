@@ -1,4 +1,5 @@
 ---
-- ping:
-    data: crash
+- name: test ansible
+  tasks:
+    - action: ping
 
