@@ -97,7 +97,7 @@ try {
         dir("web-server") {
               ansiblePlaybook(
                 credentialsId: 'ssh-key', 
-                inventory: 'etc/ansible/hosts', 
+                inventory: 'hosts', 
                 playbook: 'playbook.yaml'
               )
           }
