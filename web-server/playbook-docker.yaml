@@ -3,7 +3,7 @@
   hosts: web-server
   tasks:
 
-    - name: Install aptitude using apt
+    - name: Update apt
       apt:
         update_cache: yes
       become: yes
@@ -12,4 +12,6 @@
       shell: | 
         sudo apt-get update -y
         sudo apt install docker.io -y
+        sudo usermod -aG docker $USER
+        newgrp docker
 
