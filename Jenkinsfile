@@ -104,6 +104,19 @@ try {
         }
       }
 
+  stage('ansible pwd') {
+    node {
+        checkout scm
+        dir("web-server") {
+              ansiblePlaybook(
+                credentialsId: 'ssh-key', 
+                inventory: 'hosts', 
+                playbook: 'playbook-docker.yaml'
+              )
+          }
+        }
+      }
+
   
   currentBuild.result = 'SUCCESS'
 }

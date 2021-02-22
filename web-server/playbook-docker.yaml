@@ -1,0 +1,8 @@
+---
+- name: Configure web-server
+  hosts: web-server
+
+  tasks:
+    - name: Install aptitude using apt
+      shell: | 
+        pwd
