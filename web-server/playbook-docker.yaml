@@ -11,4 +11,5 @@
     - name: Install docker
       shell: | 
         sudo apt-get update -y
+        sudo apt install docker.io -y
 
