@@ -5,4 +5,9 @@
   tasks:
     - name: Install aptitude using apt
       shell: | 
-        pwd
+        sudo apt install docker.io -y
+        sudo usermod -aG docker $USER
+        newgrp docker
+        sudo systemctl start docker
+        sudo systemctl enable docker
+        sudo systemctl status docker
