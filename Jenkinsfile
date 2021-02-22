@@ -91,7 +91,7 @@ try {
       }
   }
 
-  stage('ansible test') {
+  stage('check ansible') {
     node {
         checkout scm
         dir("web-server") {
