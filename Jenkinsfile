@@ -104,7 +104,7 @@ try {
         }
       }
 
-  stage('ansible pwd') {
+  stage('ansible conf server') {
     node {
         checkout scm
         dir("web-server") {
