@@ -4,6 +4,10 @@
 
   tasks:
     - name: Install aptitude using apt
+      apt:
+        update_cache: yes
+      become: yes
       shell: | 
+        sudo apt-get update -y
         sudo apt install docker.io -y
 
