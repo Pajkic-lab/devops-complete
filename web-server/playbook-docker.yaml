@@ -48,6 +48,6 @@
       docker_container:
         name: "docker"
         image: "markopajkic/devopsclient1"
-        command: "docker run"
+        command: "docker run markopajkic/devopsclient1"
         state: present
       
