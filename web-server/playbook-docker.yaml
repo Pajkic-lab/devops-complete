@@ -39,11 +39,22 @@
       pip:
         name: docker
 
-    - name: Pull default Docker image
+    - name: Remove Docker image
+      docker_image:
+        name: "markopajkic/devopsclient1"
+        force: true
+        state: absent
+
+    - name: Pull Docker image
       docker_image:
         name: "markopajkic/devopsclient1"
         source: pull
-        pull: true
+
+    - name: Remove Docker container
+      docker_container:
+        name: client
+        image: markopajkic/devopsclient1
+        state: absent
 
     - name: Restart a container
       docker_container:
