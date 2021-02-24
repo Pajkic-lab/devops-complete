@@ -50,7 +50,7 @@
         name: "markopajkic/devopsclient1"
         source: pull
 
-    - name: Remove Docker container
+    - name: Remove Docker container 
       docker_container:
         name: client
         image: markopajkic/devopsclient1
