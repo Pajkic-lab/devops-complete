@@ -43,13 +43,7 @@
       docker_image:
         name: "markopajkic/devopsclient1"
         source: pull
-        restart: yes
-
-    - name: Create default container
-      docker_container:
-        name: client
-        image: markopajkic/devopsclient1
-        restart: yes
+        pull: true
 
     - name: Restart a container
       docker_container:
