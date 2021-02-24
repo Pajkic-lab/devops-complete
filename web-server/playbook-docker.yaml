@@ -44,9 +44,18 @@
         name: "markopajkic/devopsclient1"
         source: pull 
 
-    - name: Create default containers
+    - name: Create default container
       docker_container:
         name: client
         image: markopajkic/devopsclient1
-        command: ["start"]
+
+    - name: Restart a container
+      docker_container:
+        name: client
+        image: markopajkic/devopsclient1
+        state: started
+        restart: yes
+        ports:
+        - "8050:80"
+
       
