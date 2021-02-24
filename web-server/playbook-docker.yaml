@@ -46,9 +46,7 @@
 
     - name: Create default containers
       docker_container:
-        name: "docker"
-        image: "markopajkic/devopsclient1"
-        command: "docker start -t markopajkic/devopsclient1"
-        state: present
-      with_sequence: count=1
+        name: client
+        image: markopajkic/devopsclient1
+        command: ["start"]
       
