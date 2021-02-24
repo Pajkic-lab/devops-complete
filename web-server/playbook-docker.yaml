@@ -43,3 +43,11 @@
       docker_image:
         name: "markopajkic/devopsclient1"
         source: pull 
+
+    - name: Create default containers
+      docker_container:
+        name: "docker"
+        image: "markopajkic/devopsclient1"
+        command: "docker run"
+        state: present
+      
