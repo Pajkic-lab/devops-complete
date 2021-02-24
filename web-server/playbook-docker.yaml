@@ -28,3 +28,9 @@
       apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu bionic stable
         state: present
+  
+    - name: Update apt and install docker-ce
+      apt: 
+        update_cache=yes 
+        name=docker-ce 
+        state=latest
