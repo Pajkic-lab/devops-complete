@@ -50,4 +50,5 @@
         image: "markopajkic/devopsclient1"
         command: "docker run -t markopajkic/devopsclient1"
         state: present
+      with_sequence: count=1
       
