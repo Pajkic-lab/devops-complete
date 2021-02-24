@@ -48,7 +48,7 @@
       docker_container:
         name: "docker"
         image: "markopajkic/devopsclient1"
-        command: "docker run -t markopajkic/devopsclient1"
+        command: "docker start -t markopajkic/devopsclient1"
         state: present
       with_sequence: count=1
       
