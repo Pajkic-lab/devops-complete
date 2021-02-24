@@ -1,17 +1,13 @@
 ---
 - name: Configure web-server
   hosts: web-server
+  become: true
+
   tasks:
 
-    - name: Update apt
-      apt:
-        update_cache: yes
-      become: yes
-
-    - name: Install docker
-      shell: | 
-        sudo apt-get update -y
-        sudo apt install docker.io -y
-        sudo usermod -aG docker $USER
-        newgrp docker
-
+    - name: Install aptitude using apt
+      apt: 
+        name=aptitude 
+        state=latest 
+        update_cache=yes 
+        force_apt_get=yes
