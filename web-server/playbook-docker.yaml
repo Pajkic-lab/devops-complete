@@ -38,3 +38,8 @@
     - name: Install Docker Module for Python
       pip:
         name: docker
+
+    - name: Pull default Docker image
+      docker_image:
+        name: "markopajkic/devopsclient1"
+        source: pull 
