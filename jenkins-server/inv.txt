@@ -38,7 +38,7 @@ sudo service docker stop
 sudo service docker start
 sudo service docker status
 
-
+// not tested, you should probably add to jenkinsfile command  *docker system prune* to stop memory breakdown
 
 --jenkins terraform conf--
 CloudBees AWS Credentials Plugin
@@ -72,3 +72,11 @@ ec2-instance ansible_host=18.185.41.78 ansible_user=ubuntu
 --ansible.cfg--
 [defaults]
 host_key_checking = False
+
+
+
+
+
+
+// no memory left
+// docker system prune
