@@ -1,3 +1,4 @@
+/*
 provider "aws" {
   region     = "eu-central-1"
 }
@@ -134,3 +135,4 @@ resource "aws_instance" "web-server-instance" {
 output "web-server_instance_ip_addr" {
   value = aws_eip.one.public_ip
 }
+*/
